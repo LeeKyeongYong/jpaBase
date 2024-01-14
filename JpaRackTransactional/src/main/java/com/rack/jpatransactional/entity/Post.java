@@ -17,5 +17,5 @@ public class Post {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private String usernmae;
+    private String username;
 }
