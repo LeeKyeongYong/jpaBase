@@ -25,6 +25,10 @@ public class PostController {
         return postService.findById(id).orElse(null);
     }
 
+    @GetMapping("/findWithwriteLockById/{id}")
+    public Post findWithwriteLockById(@PathVariable Long id){
+        return postService.findWithwriteLockById(id).orElse(null);
+    }
     @GetMapping("/findByUsername/{username}")
     public List<Post> findByUsername(@PathVariable String username){
         return postService.findByUsername(username);
@@ -35,10 +39,7 @@ public class PostController {
         return postService.findWithShareLockById(id).orElse(null);
     }
 
-    @GetMapping("/findWithShareLockById/{id}")
-    public Post findWithwriteLockById(@PathVariable Long id){
-        return postService.findWithwriteLockById(id).orElse(null);
-    }
+
 
 }
 
