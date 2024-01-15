@@ -39,6 +39,10 @@ public class PostController {
         return postService.findWithShareLockById(id).orElse(null);
     }
 
+    @GetMapping("/modify/optimistic/{id}")
+    public Post modifyOptimistic(@PathVariable Long id){
+        return postService.modifyOptimistic(id);
+    }
 
 
 }

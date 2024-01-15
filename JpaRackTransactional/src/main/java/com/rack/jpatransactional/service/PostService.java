@@ -38,4 +38,10 @@ public class PostService {
     public Optional<Post> findWithwriteLockById(Long id) {
         return postRepository.findWithwriteLockById(id);
     }
+
+    public Post modifyOptimistic(Long id) {
+        Post post = postRepository.findById(id).orElseThrow();
+        post.setUsername(post.getUsername()+"!");
+        return post;
+    }
 }
