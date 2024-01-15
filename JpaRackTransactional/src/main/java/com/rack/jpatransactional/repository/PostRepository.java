@@ -13,4 +13,7 @@ public interface PostRepository extends JpaRepository<Post,Long> {
 
     @Lock(LockModeType.PESSIMISTIC_READ) //쿼리문에서 lock in SHARE MODE; 생성이됨
     Optional<Post> findWithShareLockById(Long id);
+
+    @Lock(LockModeType.PESSIMISTIC_WRITE) //쿼리문에서 For Update; 생성이됨
+    Optional<Post> findWithwriteLockById(Long id);
 }

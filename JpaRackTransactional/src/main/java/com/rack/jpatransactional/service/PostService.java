@@ -28,10 +28,14 @@ public class PostService {
         return postRepository.findByUsername(username);
     }
 
-    @SneakyThrows
+    //@SneakyThrows
     public Optional<Post> findWithShareLockById(Long id) {
-            postRepository.findWithShareLockById(id);
-            Thread.sleep(1000);
+            //postRepository.findWithShareLockById(id);
+            //Thread.sleep(1000);
             return postRepository.findWithShareLockById(id);
+    }
+
+    public Optional<Post> findWithwriteLockById(Long id) {
+        return postRepository.findWithwriteLockById(id);
     }
 }

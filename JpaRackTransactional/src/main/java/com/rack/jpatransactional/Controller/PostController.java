@@ -35,6 +35,11 @@ public class PostController {
         return postService.findWithShareLockById(id).orElse(null);
     }
 
+    @GetMapping("/findWithShareLockById/{id}")
+    public Post findWithwriteLockById(@PathVariable Long id){
+        return postService.findWithwriteLockById(id).orElse(null);
+    }
+
 }
 
 
