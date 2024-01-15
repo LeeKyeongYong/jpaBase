@@ -35,15 +35,17 @@ public class PostService {
             return postRepository.findWithShareLockById(id);
     }
 
-    @SneakyThrows
+
     @Transactional
     public Optional<Post> findWithwriteLockById(Long id) {
-        Thread.sleep(1000);
+
         return postRepository.findWithwriteLockById(id);
     }
 
+    @SneakyThrows
     public Post modifyOptimistic(Long id) {
         Post post = postRepository.findById(id).orElseThrow();
+        Thread.sleep(10_000);
         post.setUsername(post.getUsername()+"!");
         return post;
     }
